@@ -1,0 +1,58 @@
+body {
+    background: #24c8ce;
+    text-align: center;
+}
+
+img.poke__logo {
+    margin-top: 25px;
+    width: 23%;
+}
+
+.poke__name {
+    color: black;
+    font-size: 24px;
+    position: absolute;
+    left: 331px;
+    top: -215px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.wrapper__search {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 32%;
+    top: 78%;
+}
+
+input.input__pokemon {
+    background: #ffee26;
+    width: 56%;
+    height: 35px;
+    border: none;
+    font-size: 10px;
+}
+
+img.result__pokemon {
+    position: absolute;
+    left: 34%;
+    top: 42%;
+    width: 10%;
+}
+
+.pokedex img {
+    margin-top: 50px;
+    width: 50%;
+    height: auto;
+}
+
+a.btn__search {
+    font-size: 11px;
+    height: 32px;
+    border-radius: 50%;
+    width: 32px;
+    position: absolute;
+    left: 31.5%;
+    top: 70.2%;
+}

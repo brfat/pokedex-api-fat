@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="pt">
+    <meta charset="UTF-8">
+    <title>Pokemon API</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css"
+</head>
+
+<body>
+    <div class="container">
+        <img class="poke__logo" src="assets/img/logo-pokemon.png">
+
+        <div class="wrapper__search">
+            <input class="form-control input__pokemon" placeholder="Nº Pokemon">
+        </div>
+        <div class="pokedex">
+            <img src="http://4.bp.blogspot.com/-RWEkJhn5Yww/Ueg8bkF_RGI/AAAAAAAAAJM/bxG4vF1KcMA/s1600/pokedex1.gif">
+            <a class="btn btn-primary btn__search" href="#">P</a>
+            <!--<a class="btn btn-primary btn-next" href="#">Next Pokemon</a>-->
+           <!-- <a class="btn btn-primary btn-prev" href="#">Prev Pokemon</a>-->
+        </div>
+        <div class="wallpaper">
+            <img class="result__pokemon" src="">
+        </div>
+
+        <div class="pokemon__music" style="display: none">
+            <audio controls>
+                <source src="assets/audio/poke-violin.mp3" type="audio/mpeg">
+            </audio>
+            <audio autoplay src="assets/audio/poke-violin.mp3"></audio>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        $("img.result__pokemon").hide();
+        $("a.btn__search").click(function (e) {
+            $input = $("input.input__pokemon").val();
+            e.preventDefault();
+
+            $.ajax({
+                url: "https://pokeapi.co/api/v2/pokemon-form/" + $input++,
+                dataType: 'json',
+                crossDomain: true,
+                contentType: "application/json",
+                success: function (result) {
+                    $(".wrapper__search").append('<p class="poke__name">' + result['name'] + '</p>');
+                    $(".wallpaper").find('img.result__pokemon').attr('src', result['sprites'].front_default);
+                    $("img.result__pokemon").show();
+                    console.log($input);
+                }
+            });
+
+        });
+    });
+</script>
+
+</html>
